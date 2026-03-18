@@ -52,6 +52,12 @@ MOVE 'Nome_Banco_log' TO 'Destino\Nome_Banco_Log.ldf'
 
 --RESTURANDO BACKUPS FULL, DIFF E LOG
 
+-- Opção "RESTORE WITH STANDBY" (Possibilitar select nas tabelas da base em processo de restauração)
+
+RESTORE DATABASE [NomeDoBanco]
+FROM DISK = 'C:\Backup\MeuBackup.bak'
+WITH STANDBY = 'C:\Backup\MeuBackup_Undo.tuf', REPLACE;
+		
 use master
 
 --	Restore FULL
